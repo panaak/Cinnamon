@@ -1855,16 +1855,23 @@ MessageTray.prototype = {
         let height = 5;
         if (panel)
             height += panel.actor.get_height();
-        let newY = monitor.y + height;
+        // let newY = monitor.y + height;
+        let newY = monitor.y + height + 50;
 
-        if (this._notificationBin.y < expandedY)
-            this._notificationBin.y = expandedY;
-        else if (this._notification.actor.y != expandedY)
-            this._tween(this._notificationBin, '_notificationState', State.SHOWN,
-                        { y: newY,
-                          time: ANIMATION_TIME,
-                          transition: 'easeOutQuad'
-                        });
+        // if (this._notificationBin.y < expandedY)
+        //     this._notificationBin.y = expandedY;
+        // else if (this._notification.actor.y != expandedY)
+        //     this._tween(this._notificationBin, '_notificationState', State.SHOWN,
+        //                 { y: newY,
+        //                   time: ANIMATION_TIME,
+        //                   transition: 'easeOutQuad'
+        //                 });
+
+        this._tween(this._notificationBin, '_notificationState', State.SHOWN,
+                    { y: newY,
+                      time: ANIMATION_TIME,
+                      transition: 'easeOutQuad'
+                    });
 
    },
 
